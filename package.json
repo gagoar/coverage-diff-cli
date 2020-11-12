@@ -1,5 +1,5 @@
 {
-  "name": "ts-node-template",
+  "name": "coverage-diff-cli",
   "repository": "git@github.com:gagoar/codeowners-generator.git",
   "license": "MIT",
   "version": "0.0.0",
@@ -7,7 +7,7 @@
   "main": "dist/index.js",
   "types": "types/index.d.ts",
   "bin": {
-    "ts-node-template-ci": "cli/index.js"
+    "coverage-diff-cli-ci": "cli/index.js"
   },
   "scripts": {
     "precommit": "lint-staged",
@@ -104,7 +104,7 @@
   "author": "Gago <xeroice@gmail.com>",
   "dependencies": {
     "commander": "6.2.0",
-    "cosmiconfig": "7.0.0",
+    "coverage-diff": "^1.6.0",
     "debug": "4.2.0",
     "ora": "5.1.0"
   },
