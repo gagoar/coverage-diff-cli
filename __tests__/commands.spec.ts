@@ -5,6 +5,7 @@ import { regressionCommand } from '../index';
 import { mockConsole, unMockConsole } from './helper';
 import baseSummary from '../__mocks__/base_summary.json';
 import headSummary from '../__mocks__/head_summary.json';
+import headRegressedSummary from '../__mocks__/regression_head_summary.json';
 import { diffCommand, resultsCommand } from '../src';
 
 jest.mock('fs');
@@ -32,6 +33,19 @@ describe('commands', () => {
       fail.mockReset();
     });
 
+    it('should fail because input is malformed (bad json)', async () => {
+      const mockExit = mockProcessExit();
+      readFile.mockImplementation((_file: string, callback: Callback) => {
+        callback(null, Buffer.from(''));
+      });
+
+      try {
+        await resultsCommand({ parent: { baseLocation: 'base_summary.json', headLocation: 'head_summary.json' } });
+      } catch (e) {
+        expect(mockExit).toHaveBeenCalledWith(1);
+        expect(fail).toHaveBeenCalled();
+      }
+    });
     it('should show the results', async () => {
       readFile.mockImplementation((file: string, callback: Callback) => {
         const summary = file.match(/base/) ? baseSummary : headSummary;
@@ -77,6 +91,35 @@ describe('commands', () => {
       fail.mockReset();
     });
 
+    it('should fail because input is malformed (bad json)', async () => {
+      const mockExit = mockProcessExit();
+      readFile.mockImplementation((_file: string, callback: Callback) => {
+        callback(null, Buffer.from(''));
+      });
+
+      try {
+        await diffCommand({ parent: { baseLocation: 'base_summary.json', headLocation: 'head_summary.json' } });
+      } catch (e) {
+        expect(mockExit).toHaveBeenCalledWith(1);
+        expect(fail).toHaveBeenCalled();
+      }
+    });
+    it('should fail because input is malformed (no total on the summary)', async () => {
+      const mockExit = mockProcessExit();
+      readFile.mockImplementation((file: string, callback: Callback) => {
+        const summary = file.match(/base/) ? baseSummary : headSummary;
+        const { total, ...modSummary } = summary;
+        callback(null, Buffer.from(JSON.stringify(modSummary)));
+      });
+
+      try {
+        await diffCommand({ parent: { baseLocation: 'base_summary.json', headLocation: 'head_summary.json' } });
+      } catch (e) {
+        expect(mockExit).toHaveBeenCalledWith(1);
+        expect(fail).toHaveBeenCalled();
+      }
+    });
+
     it('should show the diff', async () => {
       readFile.mockImplementation((file: string, callback: Callback) => {
         const summary = file.match(/base/) ? baseSummary : headSummary;
@@ -95,6 +138,7 @@ describe('commands', () => {
           ],
         ]
       `);
+
       expect(fail).not.toHaveBeenCalled();
       expect(consoleLogMock.mock.calls).toMatchInlineSnapshot(`
         Array [
@@ -192,6 +236,43 @@ describe('commands', () => {
       fail.mockReset();
     });
 
+    it('should fail because input is malformed (bad json)', async () => {
+      const mockExit = mockProcessExit();
+      readFile.mockImplementation((_file: string, callback: Callback) => {
+        callback(null, Buffer.from(''));
+      });
+
+      try {
+        await regressionCommand({ parent: { baseLocation: 'base_summary.json', headLocation: 'head_summary.json' } });
+      } catch (e) {
+        expect(mockExit).toHaveBeenCalledWith(1);
+        expect(fail).toHaveBeenCalled();
+      }
+    });
+
+    it('should regress', async () => {
+      const mockExit = mockProcessExit();
+      readFile.mockImplementation((file: string, callback: Callback) => {
+        const summary = file.match(/base/) ? baseSummary : headRegressedSummary;
+        callback(null, Buffer.from(JSON.stringify(summary)));
+      });
+
+      await regressionCommand({ parent: { baseLocation: 'base_summary.json', headLocation: 'head_summary.json' } });
+
+      expect(stopAndPersist.mock.calls).toMatchInlineSnapshot(`
+        Array [
+          Array [
+            Object {
+              "symbol": "💫",
+              "text": "There was a regression",
+            },
+          ],
+        ]
+      `);
+      expect(fail).not.toHaveBeenCalled();
+      expect(mockExit).toHaveBeenCalledWith(1);
+    });
+
     it('should exit with 0', async () => {
       const mockExit = mockProcessExit();
       readFile.mockImplementation((file: string, callback: Callback) => {
@@ -206,7 +287,7 @@ describe('commands', () => {
           Array [
             Object {
               "symbol": "💫",
-              "text": "There was a regression",
+              "text": "No regression found",
             },
           ],
         ]

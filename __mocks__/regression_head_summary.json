@@ -1,0 +1,44 @@
+{
+  "total": {
+    "lines": { "total": 57, "covered": 55, "skipped": 0, "pct": 96.49 },
+    "statements": { "total": 59, "covered": 57, "skipped": 0, "pct": 96.61 },
+    "functions": { "total": 7, "covered": 7, "skipped": 0, "pct": 100 },
+    "branches": { "total": 11, "covered": 10, "skipped": 0, "pct": 90.91 }
+  },
+  "/Users/gfrigerio/base/github-app-installation-token/src/index.ts": {
+    "lines": { "total": 1, "covered": 1, "skipped": 0, "pct": 100 },
+    "functions": { "total": 0, "covered": 0, "skipped": 0, "pct": 100 },
+    "statements": { "total": 1, "covered": 1, "skipped": 0, "pct": 100 },
+    "branches": { "total": 0, "covered": 0, "skipped": 0, "pct": 100 }
+  },
+  "/Users/gfrigerio/base/github-app-installation-token/src/commands/getToken.ts": {
+    "lines": { "total": 37, "covered": 35, "skipped": 0, "pct": 94.59 },
+    "functions": { "total": 3, "covered": 3, "skipped": 0, "pct": 100 },
+    "statements": { "total": 37, "covered": 35, "skipped": 0, "pct": 94.59 },
+    "branches": { "total": 11, "covered": 10, "skipped": 0, "pct": 90.91 }
+  },
+  "/Users/gfrigerio/base/github-app-installation-token/src/commands/index.ts": {
+    "lines": { "total": 1, "covered": 1, "skipped": 0, "pct": 100 },
+    "functions": { "total": 2, "covered": 2, "skipped": 0, "pct": 100 },
+    "statements": { "total": 3, "covered": 3, "skipped": 0, "pct": 100 },
+    "branches": { "total": 0, "covered": 0, "skipped": 0, "pct": 100 }
+  },
+  "/Users/gfrigerio/base/github-app-installation-token/src/utils/constants.ts": {
+    "lines": { "total": 2, "covered": 2, "skipped": 0, "pct": 100 },
+    "functions": { "total": 0, "covered": 0, "skipped": 0, "pct": 100 },
+    "statements": { "total": 2, "covered": 2, "skipped": 0, "pct": 100 },
+    "branches": { "total": 0, "covered": 0, "skipped": 0, "pct": 100 }
+  },
+  "/Users/gfrigerio/base/github-app-installation-token/src/utils/debug.ts": {
+    "lines": { "total": 6, "covered": 6, "skipped": 0, "pct": 100 },
+    "functions": { "total": 1, "covered": 1, "skipped": 0, "pct": 100 },
+    "statements": { "total": 6, "covered": 6, "skipped": 0, "pct": 100 },
+    "branches": { "total": 0, "covered": 0, "skipped": 0, "pct": 100 }
+  },
+  "/Users/gfrigerio/base/github-app-installation-token/src/utils/readFile.ts": {
+    "lines": { "total": 10, "covered": 10, "skipped": 0, "pct": 100 },
+    "functions": { "total": 1, "covered": 1, "skipped": 0, "pct": 100 },
+    "statements": { "total": 10, "covered": 10, "skipped": 0, "pct": 100 },
+    "branches": { "total": 0, "covered": 0, "skipped": 0, "pct": 100 }
+  }
+}

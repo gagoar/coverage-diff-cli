@@ -1,9 +1,10 @@
 import ora from 'ora';
 import diff from 'coverage-diff';
-import { NO_REGRESSION_COPY, REGRESSION_COPY, SUCCESS_SYMBOL } from '../utils/constants';
+import { SUCCESS_SYMBOL } from '../utils/constants';
 import { Command, getOptionsFromCommand } from '../utils/getOptionsFromCommand';
 import { logger } from '../utils/debug';
 import { readCoverageFiles } from '../utils/readCoverageFiles';
+import { copyForRegression } from '../utils/copyForRegression';
 
 const debug = logger('diff');
 
@@ -21,7 +22,7 @@ export const command = async (options: Command): Promise<void> => {
 
     console.log(output.results);
 
-    loader.stopAndPersist({ text: output.regression ? NO_REGRESSION_COPY : REGRESSION_COPY, symbol: SUCCESS_SYMBOL });
+    loader.stopAndPersist({ text: copyForRegression(output.regression), symbol: SUCCESS_SYMBOL });
   } catch (e) {
     loader.fail(`We encountered an error: ${e}`);
     process.exit(1);
