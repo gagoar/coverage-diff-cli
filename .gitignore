@@ -6,3 +6,7 @@ coverage/
 cli/
 # ignore dist/ output
 dist/
+# ignore types/ output
+types/
+# ignoring the cli- binaries
+cli-*

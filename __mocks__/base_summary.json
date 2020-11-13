@@ -1,0 +1,44 @@
+{
+  "total": {
+    "lines": { "total": 57, "covered": 0, "skipped": 0, "pct": 0 },
+    "statements": { "total": 59, "covered": 0, "skipped": 0, "pct": 0 },
+    "functions": { "total": 7, "covered": 0, "skipped": 0, "pct": 0 },
+    "branches": { "total": 11, "covered": 0, "skipped": 0, "pct": 0 }
+  },
+  "/some/full/path/src/index.ts": {
+    "lines": { "total": 1, "covered": 0, "skipped": 0, "pct": 0 },
+    "functions": { "total": 0, "covered": 0, "skipped": 0, "pct": 100 },
+    "statements": { "total": 1, "covered": 0, "skipped": 0, "pct": 0 },
+    "branches": { "total": 0, "covered": 0, "skipped": 0, "pct": 100 }
+  },
+  "/some/full/path/src/commands/getToken.ts": {
+    "lines": { "total": 37, "covered": 0, "skipped": 0, "pct": 0 },
+    "functions": { "total": 3, "covered": 0, "skipped": 0, "pct": 0 },
+    "statements": { "total": 37, "covered": 0, "skipped": 0, "pct": 0 },
+    "branches": { "total": 11, "covered": 0, "skipped": 0, "pct": 0 }
+  },
+  "/some/full/path/src/commands/index.ts": {
+    "lines": { "total": 1, "covered": 0, "skipped": 0, "pct": 0 },
+    "functions": { "total": 2, "covered": 0, "skipped": 0, "pct": 0 },
+    "statements": { "total": 3, "covered": 0, "skipped": 0, "pct": 0 },
+    "branches": { "total": 0, "covered": 0, "skipped": 0, "pct": 100 }
+  },
+  "/some/full/path/src/utils/constants.ts": {
+    "lines": { "total": 2, "covered": 0, "skipped": 0, "pct": 0 },
+    "functions": { "total": 0, "covered": 0, "skipped": 0, "pct": 100 },
+    "statements": { "total": 2, "covered": 0, "skipped": 0, "pct": 0 },
+    "branches": { "total": 0, "covered": 0, "skipped": 0, "pct": 100 }
+  },
+  "/some/full/path/src/utils/debug.ts": {
+    "lines": { "total": 6, "covered": 0, "skipped": 0, "pct": 0 },
+    "functions": { "total": 1, "covered": 0, "skipped": 0, "pct": 0 },
+    "statements": { "total": 6, "covered": 0, "skipped": 0, "pct": 0 },
+    "branches": { "total": 0, "covered": 0, "skipped": 0, "pct": 100 }
+  },
+  "/some/full/path/src/utils/readFile.ts": {
+    "lines": { "total": 10, "covered": 0, "skipped": 0, "pct": 0 },
+    "functions": { "total": 1, "covered": 0, "skipped": 0, "pct": 0 },
+    "statements": { "total": 10, "covered": 0, "skipped": 0, "pct": 0 },
+    "branches": { "total": 0, "covered": 0, "skipped": 0, "pct": 100 }
+  }
+}
