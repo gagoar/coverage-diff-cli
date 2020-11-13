@@ -1,4 +1,14 @@
 <p align="center">
+    <a href="https://www.npmjs.com/package/coverage-diff-cli">
+      <img src="https://img.shields.io/npm/v/coverage-diff-cli/latest.svg?style=flat-square" alt="NPM Version" />
+    </a>
+    <a href="https://codecov.io/gh/gagoar/coverage-diff-cli">
+      <img src="https://codecov.io/gh/gagoar/coverage-diff-cli/branch/main/graph/badge.svg"  alt="codecov"/>
+    </a>
+    <a href="https://github.com/gagoar/coverage-diff-cli/blob/main/LICENSE">
+      <img src="https://img.shields.io/npm/l/coverage-diff-cli.svg?style=flat-square" alt="MIT license" />
+    </a>
+<p align="center">
   <h3 align="center">coverage-diff-cli</h3>
 
   <p align="center">
@@ -27,28 +37,47 @@ the `base` and `head` parameters are a standard output from istanbul code covera
 
 > if you are using jest (that comes already with istanbul inside) you can just specify the `--coverageReporter` via [command line](https://jestjs.io/docs/en/cli) or via the [configuration](https://jestjs.io/docs/en/23.x/configuration#coveragereporters-arraystring).
 
+```bash
+Usage: coverage-diff-cli [options] [command]
+
+🚦 command line tool to report diff coverage 🚦
+
+Options:
+  -V, --version                                           output the version number
+  -b --baseLocation <path/to/the/base/json-summary.json>  The base summary (frequently on master/main branch), for more details: https://istanbul.js.org/docs/advanced/alternative-reporters/#json-summary
+  -h --headLocation <path/to/the/head/json-summary.json>  The head summary (frequently coming from changes in a PR), for more details:
+                                                          https://istanbul.js.org/docs/advanced/alternative-reporters/#json-summary
+  --help                                                  display help for command
+
+Commands:
+  diff                                                    It will return a diff (json format) between base and head summary diffs
+  regression                                              It will exit with 0 or 1 if was a regression or not
+  results                                                 It will display a markdown table with the differential and regressions
+  help [command]                                          display help for command
+```
+
 ### Diff
 
 It will return a json object displaying the differential between these 2 summaries. (you can see the type of the response [ICoverageSummary](#diff-response-type))
 
 ```bash
-  coverage-diff diff --base <base_summary.json> --head <head_summary.json>
+  coverage-diff diff --baseLocation <base_summary.json> --headLocation <head_summary.json>
 ```
 
 ### Regression
 
-The command line will exit with 1 if there has been a regression, useful when trying to request changes on on a PR.
+The command line will exit with `1` if there has been a regression, useful when trying to request changes on a PR.
 
 ```bash
-  coverage-diff regression --base --base <base_summary.json> --head <head_summary.json>
+  coverage-diff regression --base --baseLocation <base_summary.json> --headLocation <head_summary.json>
 ```
 
 ### Results
 
-visual output of the results.
+Visual output of results.
 
 ```bash
-  coverage-diff results --base --base <base_summary.json> --head <head_summary.json>
+  coverage-diff results --baseLocation <base_summary.json> --headLocation <head_summary.json>
 ```
 
 It will produce an output such as this:

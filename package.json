@@ -1,23 +1,23 @@
 {
   "name": "coverage-diff-cli",
-  "repository": "git@github.com:gagoar/codeowners-generator.git",
+  "repository": "git@github.com:gagoar/coverage-diff-cli.git",
   "license": "MIT",
-  "version": "0.0.0",
-  "description": "ts node template description",
+  "version": "1.0.0",
+  "description": "🚦 command line tool to report diff coverage 🚦",
   "main": "dist/index.js",
-  "types": "types/index.d.ts",
   "bin": {
-    "coverage-diff-cli-ci": "cli/index.js"
+    "coverage-diff-cli-ci": "cli/cli.js"
   },
   "scripts": {
     "precommit": "lint-staged",
     "test": "jest",
     "build": "esbuild --bundle ./index.ts --platform=node --target=node12 --main-fields=main --outdir=dist",
-    "build-cli": "esbuild --bundle ./src/bin/cli.ts --platform=node --target=node12 --main-fields=main  --outdir=cli",
-    "lint": "eslint src/* --ext .ts",
+    "build-cli": "esbuild --bundle ./src/bin/cli.ts --platform=node --target=node12 --main-fields=main --outdir=cli",
+    "build-binaries": "npm run build-cli && pkg cli/cli.js",
     "build-types": "tsc --emitDeclarationOnly --outDir types",
+    "lint": "eslint src/* --ext .ts",
     "version": "auto-changelog -p && git add CHANGELOG.md",
-    "release": "npm run build && npm run build-cli && npm publish"
+    "release": "npm run build && npm run build-cli && npm run build-binaries && npm run build-types && npm publish"
   },
   "engines": {
     "node": ">10.0.0"
@@ -125,6 +125,7 @@
     "jest": "26.6.3",
     "jest-mock-process": "1.4.0",
     "lint-staged": "10.5.1",
+    "pkg": "^4.4.9",
     "prettier": "2.1.2",
     "prettier-eslint": "11.0.0",
     "prettier-eslint-cli": "5.0.0",
