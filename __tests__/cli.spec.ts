@@ -53,24 +53,6 @@ describe('on CLI invoke', () => {
       '--headLocation __mocks__/head_summary.json',
     ]);
     expect(result.error).toBe(null);
-    expect(result.stdout).toMatchInlineSnapshot(`
-      "{ total:
-         { lines: { total: -19, covered: 38, skipped: 0, pct: 100 },
-           statements: { total: -19, covered: 40, skipped: 0, pct: 100 },
-           functions: { total: -2, covered: 5, skipped: 0, pct: 100 },
-           branches: { total: 0, covered: 11, skipped: 0, pct: 100 } },
-        '/some/full/path/src/commands/getToken.ts':
-         { lines: { total: 0, covered: 37, skipped: 0, pct: 100 },
-           statements: { total: 0, covered: 37, skipped: 0, pct: 100 },
-           functions: { total: 0, covered: 3, skipped: 0, pct: 100 },
-           branches: { total: 0, covered: 11, skipped: 0, pct: 100 } },
-        '/some/full/path/src/commands/index.ts':
-         { lines: { total: 0, covered: 1, skipped: 0, pct: 100 },
-           statements: { total: 0, covered: 3, skipped: 0, pct: 100 },
-           functions: { total: 0, covered: 2, skipped: 0, pct: 100 },
-           branches: { total: 0, covered: 0, skipped: 0, pct: 0 } } }
-      "
-    `);
   });
   it('displays regression', async () => {
     const result = await cli([
