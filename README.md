@@ -25,9 +25,46 @@
 ## Table of Contents
 
 - [Built With](#built-with)
+- [Installation](#installation)
+
+  - [NPX](#npx)
+  - [NPM](#npm-global)
+  - [YARN](#yarn-global)
+  - [Binary](#binary)
+
 - [Getting Started](#getting-started)
 - [Contributing](#contributing)
 - [License](#license)
+
+## Installation
+
+### NPX
+
+```bash
+   npx coverage-diff-cli results --baseLocation <base_summary.json> --headLocation <head_summary.json>
+```
+
+### NPM (global)
+
+```bash
+  npm -g install coverage-diff-cli
+
+  npm run coverage-diff-cli results --baseLocation <base_summary.json> --headLocation <head_summary.json>
+```
+
+### YARN (global)
+
+```bash
+  yarn global add coverage-diff-cli
+
+  coverage-diff-cli results --baseLocation <base_summary.json> --headLocation <head_summary.json>
+```
+
+### Binary
+
+If you don't want any dependencies, you can use the binary directly.
+
+Head over to [releases](https://github.com/gagoar/coverage-diff-cli/releases/latest) and pick the binary for LINUX, MACOSX and WINDOWS.
 
 ## Getting Started
 
@@ -35,7 +72,7 @@ This cli exposes 3 main functionalities coming directly from [coverage-dff](http
 
 the `base` and `head` parameters are a standard output from istanbul code coverage tool called [json-summary](https://istanbul.js.org/docs/advanced/alternative-reporters/#json-summary).
 
-> if you are using jest (that comes already with istanbul inside) you can just specify the `--coverageReporter` via [command line](https://jestjs.io/docs/en/cli) or via the [configuration](https://jestjs.io/docs/en/23.x/configuration#coveragereporters-arraystring).
+> if you are using jest (that comes already with istanbul inside) you can just specify the `--coverageReporters` via [command line](https://jestjs.io/docs/en/cli) or via the [configuration](https://jestjs.io/docs/en/23.x/configuration#coveragereporters-arraystring).
 
 ```bash
 Usage: coverage-diff-cli [options] [command]
@@ -61,7 +98,7 @@ Commands:
 It will return a json object displaying the differential between these 2 summaries. (you can see the type of the response [ICoverageSummary](#diff-response-type))
 
 ```bash
-  coverage-diff diff --baseLocation <base_summary.json> --headLocation <head_summary.json>
+  npx coverage-diff-cli diff --baseLocation <base_summary.json> --headLocation <head_summary.json>
 ```
 
 ### Regression
@@ -69,15 +106,15 @@ It will return a json object displaying the differential between these 2 summari
 The command line will exit with `1` if there has been a regression, useful when trying to request changes on a PR.
 
 ```bash
-  coverage-diff regression --base --baseLocation <base_summary.json> --headLocation <head_summary.json>
+  npx coverage-diff-cli regression --base --baseLocation <base_summary.json> --headLocation <head_summary.json>
 ```
 
 ### Results
 
-Visual output of results.
+Visual output of results. (markdown). Ideal for posting directly in github PR.
 
 ```bash
-  coverage-diff results --baseLocation <base_summary.json> --headLocation <head_summary.json>
+  npx coverage-diff-cli results --baseLocation <base_summary.json> --headLocation <head_summary.json>
 ```
 
 It will produce an output such as this:
@@ -116,8 +153,8 @@ export interface ICoverageInfo {
 
 ## Built With
 
-- [esbuild](https://github.com/evanw/esbuild)
 - [coverage-dff](https://github.com/flaviusone/coverage-diff)
+- [esbuild](https://github.com/evanw/esbuild)
 - [jest](https://github.com/facebook/jest)
 - [ora](https://github.com/sindresorhus/ora)
 - [commander](https://github.com/tj/commander.js)

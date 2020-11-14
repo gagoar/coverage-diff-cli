@@ -6,7 +6,7 @@
   "description": "🚦 command line tool to report diff coverage 🚦",
   "main": "dist/index.js",
   "bin": {
-    "coverage-diff-cli-ci": "cli/cli.js"
+    "coverage-diff-cli": "cli/cli.js"
   },
   "scripts": {
     "precommit": "lint-staged",
@@ -24,8 +24,10 @@
   },
   "keywords": [
     "cli",
-    "template",
-    "node"
+    "node",
+    "coverage",
+    "diff",
+    "istanbul"
   ],
   "husky": {
     "hooks": {
