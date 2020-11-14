@@ -98,7 +98,7 @@ Commands:
 It will return a json object displaying the differential between these 2 summaries. (you can see the type of the response [ICoverageSummary](#diff-response-type))
 
 ```bash
-  npx coverage-diff diff --baseLocation <base_summary.json> --headLocation <head_summary.json>
+  npx coverage-diff-cli diff --baseLocation <base_summary.json> --headLocation <head_summary.json>
 ```
 
 ### Regression
@@ -106,7 +106,7 @@ It will return a json object displaying the differential between these 2 summari
 The command line will exit with `1` if there has been a regression, useful when trying to request changes on a PR.
 
 ```bash
-  npx coverage-diff regression --base --baseLocation <base_summary.json> --headLocation <head_summary.json>
+  npx coverage-diff-cli regression --base --baseLocation <base_summary.json> --headLocation <head_summary.json>
 ```
 
 ### Results
@@ -114,7 +114,7 @@ The command line will exit with `1` if there has been a regression, useful when 
 Visual output of results. (markdown). Ideal for posting directly in github PR.
 
 ```bash
-  npx coverage-diff results --baseLocation <base_summary.json> --headLocation <head_summary.json>
+  npx coverage-diff-cli results --baseLocation <base_summary.json> --headLocation <head_summary.json>
 ```
 
 It will produce an output such as this:
