@@ -13,7 +13,7 @@ export const command = async (options: Command): Promise<void> => {
 
   const { baseLocation, headLocation } = getOptionsFromCommand(options);
 
-  const loader = ora('processing summaries...').start();
+  const loader = ora('processing summaries...\n').start();
 
   try {
     const [base, head] = await readCoverageFiles(baseLocation, headLocation);
