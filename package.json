@@ -105,7 +105,7 @@
   },
   "author": "Gago <xeroice@gmail.com>",
   "dependencies": {
-    "commander": "6.2.0",
+    "commander": "6.2.1",
     "coverage-diff": "^1.6.0",
     "debug": "4.3.1",
     "ora": "5.1.0"
