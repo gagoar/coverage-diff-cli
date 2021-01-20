@@ -68,7 +68,7 @@ Head over to [releases](https://github.com/gagoar/coverage-diff-cli/releases/lat
 
 ## Getting Started
 
-This cli exposes 3 main functionalities coming directly from [coverage-dff](https://github.com/flaviusone/coverage-diff) project.
+This cli exposes 3 main functionalities coming directly from the [coverage-diff](https://github.com/flaviusone/coverage-diff) project.
 
 the `base` and `head` parameters are a standard output from istanbul code coverage tool called [json-summary](https://istanbul.js.org/docs/advanced/alternative-reporters/#json-summary).
 
