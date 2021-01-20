@@ -153,7 +153,7 @@ export interface ICoverageInfo {
 
 ## Built With
 
-- [coverage-dff](https://github.com/flaviusone/coverage-diff)
+- [coverage-diff](https://github.com/flaviusone/coverage-diff)
 - [esbuild](https://github.com/evanw/esbuild)
 - [jest](https://github.com/facebook/jest)
 - [ora](https://github.com/sindresorhus/ora)
